@@ -21,6 +21,7 @@ Video tutorial? Ongoing...
 8. Fill in the variables as in Vars.
 9. Still in the "Settings" tab, scroll until you find "Buildpacks", then click "Add Buildpack" then select "heroku/python".
 10. Return to the "Deploy" tab, then scroll and click "Deploy Branch". Wait for the process to finish.
+11. Go to the "Resources" tab (2 buttons from the left), click the pencil icon, then slide the switch to the right, and click "Confirm".
 11. When finished, click "More", then click "View logs". If it is successful, then the bot has been successfully executed.
 
 ### 💻 Local installation
