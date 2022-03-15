@@ -57,7 +57,7 @@ If you want this repository to stay active, please help us with:
 First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place 
 to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
-This project is licensed under the GNU General Public License v3. See [LICENSE](./LICENSE) for more information.
+This project is licensed under the GNU General Public License v2. See [LICENSE](./LICENSE) for more information.
 
 Thank you for:
 - [Me](https://github.com/galihpujiirianto) for created this manually,
