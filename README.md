@@ -9,7 +9,7 @@ Telegram bot to describe yourself. Using Python and based on Pyogram.
 Very easy. Can deploy using Heroku or install locally.
 
 ### 🚀 Using Heroku
-Video tutorial? [Here it is!](https://youtu.be/mLslPohIMhI)
+Video tutorial? [Here it is!](https://youtu.be/uTWl4W9thSw)
 > Note: The video tutorial above is just an illustration, for more details, please read below.
 1. Create a [GitHub account](https://github.com/signup?source=login) (if you don't have one).
 2. [Fork](https://github.com/galihpujiirianto/AboutMe-tgbot/fork) this repository first.
