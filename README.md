@@ -33,7 +33,7 @@ Video tutorial? [Here it is!](https://youtu.be/uTWl4W9thSw)
 > After filling in the variables correctly, press `CTRL + S` and `CTRL + X` to save.
 5. Edit the string in [msg_config.py](./msg_config.py) - `nano msg_config.py`
 > After filling in the string correctly, press `CTRL + S` and `CTRL + X` to save.
-6. Run the bot - `bash start`
+6. Run the bot - `bash run`
 
 ## 📎 Vars
 After cloning the repository and install the package, create an `env` file and fill in the following variables:
