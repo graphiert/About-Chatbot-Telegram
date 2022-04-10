@@ -22,6 +22,7 @@ Video tutorial? Coming soon.
 4. For PC users:
     - On the right, there is Console, type the command `python3 main.py`.
     - On the left, select `msg_config.py`, then edit as needed.
+    > The writing guide is already in the file.
     - In the left navigation menu, select the lock icon, then enter the required variables.
     - When done, click the play icon in the top center.
 
