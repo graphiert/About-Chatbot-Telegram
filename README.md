@@ -1,34 +1,34 @@
 # About Me Telegram Bot
 
 ## 🔗 About this project
-![Demo](assets/demo.png)
+![Demo](https://telegra.ph/file/5b295909d59a7a5d51219.jpg)
 
 Telegram bot to describe yourself. Using Python and based on Pyogram.
 
 ## ⚡️ How to setup?
-Very easy. Can deploy using Heroku or install locally.
+Very easy. Can deploy using Heroku, Replit or install locally.
 
-### 🚀 Using Heroku
-Video tutorial? [Here it is!](https://youtu.be/uTWl4W9thSw)
+### 🚀 Using Replit
+Video tutorial? Coming soon.
 > Note: The video tutorial above is just an illustration, for more details, please read below.
-1. Create a [GitHub account](https://github.com/signup?source=login) (if you don't have one).
-2. [Fork](https://github.com/galihpujiirianto/AboutMe-tgbot/fork) this repository first.
-3. Edit the [msg_config.py](./msg_config.py) file, and change the string as needed.
-> Instructions for filling in the strings have been provided in the file, please pay close attention to the filling sentences.
-4. Create a [Heroku account](https://heroku.com/signup), then [create a new app](https://dashboard.heroku.com/new-app).
-5. After creating your account and app on Heroku, go to the "Deploy" tab (3 buttons from the left), then connect the GitHub account that forked this repository.
-6. Find the repository that was forked earlier, then click "Connect".
-7. Go to the "Settings" tab (rightmost button), then scroll until you find "Config Vars". Click "Reveal Config Vars".
-8. Fill in the variables as in Vars.
-9. Still in the "Settings" tab, scroll until you find "Buildpacks", then click "Add Buildpack" then select "heroku/python".
-10. Return to the "Deploy" tab, then scroll and click "Deploy Branch". Wait for the process to finish.
-11. Go to the "Resources" tab (2 buttons from the left), click the pencil icon, then slide the switch to the right, and click "Confirm".
-11. When finished, click "More", then click "View logs". If it is successful, then the bot has been successfully executed.
+1. Create a [Replit](https://replit.com) account first.
+2. [Duplicate this repository to Replit](https://replit.com/github/galihpujiirianto/AboutMe-tgbot), then wait for it to finish.
+3. For mobile users:
+    - In the navigation menu at the bottom, select "Console", then type the command `python3 main.py`.
+    - Back again in the bottom navigation menu, select "Code", then in the upper right corner there is a file button, open the `msg_config.py` file, then edit as needed.
+    > The writing guide is already in the file.
+    - Back again in the bottom navigation menu, select the "Commands" menu, then select "Secret". Then enter the required variables.
+    - When done, press the play button in the lower right corner.
+4. For PC users:
+    - On the right, there is Console, type the command `python3 main.py`.
+    - On the left, select `msg_config.py`, then edit as needed.
+    - In the left navigation menu, select the lock icon, then enter the required variables.
+    - When done, click the play icon in the top center.
 
 ### 💻 Local installation
 1. Before running, install Git and Python first.
 2. Clone this repository and go to the folder - `git clone https://github.com/galihpujiirianto/AboutMe-tgbot.git && cd AboutMe-tgbot`
-3. Install required packages - `pip3 install -r requirements.txt`
+3. Install required packages - `python3 main.py`
 4. Fill in the variables as in Vars - `nano .env`
 > After filling in the variables correctly, press `CTRL + S` and `CTRL + X` to save.
 5. Edit the string in [msg_config.py](./msg_config.py) - `nano msg_config.py`
@@ -41,6 +41,7 @@ After cloning the repository and install the package, create an `env` file and f
 API_ID = get it from https://my.telegram.org/apps
 API_HASH = get it from https://my.telegram.org/apps
 TOKEN = Create a new bot on Telegram using https://t.me/BotFather
+OWNER_ID = Start https://t.me/ChitandaEruRobot then type the /id command
 ```
 
 ## 📃 String Editing
