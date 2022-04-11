@@ -5,11 +5,17 @@
 
 Telegram bot to describe yourself. Using Python and based on Pyogram.
 
+---
+
 ## ⚡️ How to setup?
-Very easy. Can deploy using Heroku, Replit or install locally.
+Very easy. Can deploy using Replit or install locally.
+
+Before starting..
+- Create a bot at [@BotFather](https://t.me/BotFather), and get the TOKEN.
+- Enable inline mode - `/setinline`, and fill it with `Search...`.
 
 ### 🚀 Using Replit
-Video tutorial? Coming soon.
+Video tutorial? [Here it is!](https://youtu.be/9UfgZO4SRLo)
 > Note: The video tutorial above is just an illustration, for more details, please read below.
 1. Create a [Replit](https://replit.com) account first.
 2. [Duplicate this repository to Replit](https://replit.com/github/galihpujiirianto/AboutMe-tgbot), then wait for it to finish.
@@ -38,6 +44,8 @@ Video tutorial? Coming soon.
 ## 📃 Edit messages and fill the variables
 Open the [config.py](./config.py) file, and change the string as needed.
 > Instructions for filling in the strings have been provided in the file, please pay close attention to the filling sentences.
+
+---
 
 ## ✍🏻 Support, Credits, License, etc
 Reach out your problem to the maintainer at [Telegram Group Support](https://t.me/GalonSupport).
