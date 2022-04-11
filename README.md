@@ -14,39 +14,29 @@ Video tutorial? Coming soon.
 1. Create a [Replit](https://replit.com) account first.
 2. [Duplicate this repository to Replit](https://replit.com/github/galihpujiirianto/AboutMe-tgbot), then wait for it to finish.
 3. For mobile users:
-    - In the navigation menu at the bottom, select "Console", then type the command `python3 main.py`.
-    - Back again in the bottom navigation menu, select "Code", then in the upper right corner there is a file button, open the `msg_config.py` file, then edit as needed.
+    - In the upper right corner there is a file button, open the `config.py` file, then edit the message and fill the variables.
     > The writing guide is already in the file.
-    - Back again in the bottom navigation menu, select the "Commands" menu, then select "Secret". Then enter the required variables.
-    - When done, press the play button in the lower right corner.
+    - When done, press the play button in the lower right corner, after that a new Navigation will appear named "Tab", copy the existing URL.
 4. For PC users:
-    - On the right, there is Console, type the command `python3 main.py`.
-    - On the left, select `msg_config.py`, then edit as needed.
+    - On the left, select `config.py`, then edit the message and fill the variables.
     > The writing guide is already in the file.
-    - In the left navigation menu, select the lock icon, then enter the required variables.
-    - When done, click the play icon in the top center.
+    - When done, click the play icon in the top center, then a new tab will appear above the console, copy the existing URL.
+5. Create an [uptimerobot.com](https://uptimerobot.com) account.
+6. Click '+ Monitor' in the top left corner.
+    - Select 'Monitor Type' with 'HTTP(s)'.
+    - Fill in 'Friendly name' with your project name.
+    - Also fill in 'URL (or IP)' with the URL given Replit ('https://<project name>.<replit username>.repl.co').
+    - When done, click 'Create Monitor'.
 
 ### 💻 Local installation
 1. Before running, install Git and Python first.
 2. Clone this repository and go to the folder - `git clone https://github.com/galihpujiirianto/AboutMe-tgbot.git && cd AboutMe-tgbot`
-3. Install required packages - `python3 main.py`
-4. Fill in the variables as in Vars - `nano .env`
-> After filling in the variables correctly, press `CTRL + S` and `CTRL + X` to save.
-5. Edit the string in [msg_config.py](./msg_config.py) - `nano msg_config.py`
+3. Fill in the variables and edit the message in [config.py](./config.py) - `nano config.py`
 > After filling in the string correctly, press `CTRL + S` and `CTRL + X` to save.
-6. Run the bot - `bash run`
+4. Run the bot - `bash run`
 
-## 📎 Vars
-After cloning the repository and install the package, create an `env` file and fill in the following variables:
-```
-API_ID = get it from https://my.telegram.org/apps
-API_HASH = get it from https://my.telegram.org/apps
-TOKEN = Create a new bot on Telegram using https://t.me/BotFather
-OWNER_ID = Start https://t.me/ChitandaEruRobot then type the /id command
-```
-
-## 📃 String Editing
-Open the [msg_config.py](./msg_config.py) file, and change the string as needed.
+## 📃 Edit messages and fill the variables
+Open the [config.py](./config.py) file, and change the string as needed.
 > Instructions for filling in the strings have been provided in the file, please pay close attention to the filling sentences.
 
 ## ✍🏻 Support, Credits, License, etc
