@@ -120,7 +120,7 @@ def socmed(bot, message):
     send(message, photo, text, reply_markup)
 
 @bot.on_inline_query(filters.user(OWNER_ID))
-def inline_query(client, inline_query):
+def inline_query(bot, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
@@ -145,7 +145,7 @@ def inline_query(client, inline_query):
     )
 
 @bot.on_inline_query(~filters.user(OWNER_ID))
-def notowner(client, inline_query):
+def notowner(bot, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
