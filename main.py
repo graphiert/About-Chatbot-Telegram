@@ -1,7 +1,7 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/AboutMe-tgbot
 
 import os, sys
-os.system("pip3 install Pyrogram TgCrypto Flask")
+os.system("pip3 install Pyrogram==1.4.16 TgCrypto Flask")
 from pyrogram import Client
 from config import *
 
