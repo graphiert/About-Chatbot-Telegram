@@ -1,3 +1,5 @@
+chatbot = {}
+
 def send(message, photo, text, reply_markup):
     def edit(message, text, reply_markup):
         message.edit_message_text(
