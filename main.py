@@ -64,7 +64,7 @@ KEYBOARD_SOCMED = [
 def send(message, photo, text, reply_markup):
     def edit(message, text, reply_markup):
         message.edit_message_text(
-            text=text + "\n\n psst, you can chat me via this bot UwU",
+            text=text,
             reply_markup=reply_markup,
             disable_web_page_preview=True
         )
@@ -92,6 +92,7 @@ def send(message, photo, text, reply_markup):
 def start(bot, message):
     photo=IMG_START
     text=MSG_START.format(message.from_user.mention)
+    text+="\n\n psst, you can chat me via this bot UwU",
     reply_markup=InlineKeyboardMarkup(KEYBOARD_HOME)
     send(message, photo, text, reply_markup)
 
