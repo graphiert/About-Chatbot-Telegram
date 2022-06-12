@@ -2,7 +2,13 @@
 
 import os, sys
 os.system("pip3 install Pyrogram==1.4.16 TgCrypto Flask")
-from pyrogram import Client
+from pyrogram import Client, filters
+from pyrogram.types import (
+    InlineKeyboardMarkup,
+    InputTextMessageContent,
+    InlineQueryResultArticle
+)
+from keyboard import *
 from config import *
 
 if not OWNER_ID:
@@ -15,51 +21,7 @@ bot = Client(
     bot_token=TOKEN
 )
 
-#---------Extracted from funcs.py----------#
-from pyrogram import filters
-from pyrogram.types import (
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-    InputTextMessageContent,
-    InlineQueryResultArticle
-)
-
-KEYBOARD_HOME = [
-            [
-                InlineKeyboardButton(text="About Me!", callback_data=f"about"),
-                InlineKeyboardButton(text="My Projects!", callback_data=f"projects")
-            ],
-            [
-                InlineKeyboardButton(text="Connect with me!", callback_data=f"socmed")
-            ]
-]
-KEYBOARD_ABOUT = [
-            [
-                InlineKeyboardButton(text="My Projects!", callback_data=f"projects"),
-                InlineKeyboardButton(text="Connect with me!", callback_data=f"socmed")
-            ],
-            [
-                InlineKeyboardButton(text="Back to home!", callback_data=f"back")
-            ]
-]
-KEYBOARD_PROJECTS = [
-            [
-                InlineKeyboardButton(text="About Me!", callback_data=f"about"),
-                InlineKeyboardButton(text="Connect with me!", callback_data=f"socmed")
-            ],
-            [
-                InlineKeyboardButton(text="Back to home!", callback_data=f"back")
-            ]
-]
-KEYBOARD_SOCMED = [
-            [
-                InlineKeyboardButton(text="About Me!", callback_data=f"about"),
-                InlineKeyboardButton(text="My Projects!", callback_data=f"projects")
-            ],
-            [
-                InlineKeyboardButton(text="Back to home!", callback_data=f"back")
-            ]
-]
+chatbot = {}
 
 def send(message, photo, text, reply_markup):
     def edit(message, text, reply_markup):
@@ -89,16 +51,15 @@ def send(message, photo, text, reply_markup):
 
 @bot.on_message(filters.command("start") & filters.private)
 @bot.on_callback_query(filters.regex(pattern=r"back"))
-def start(bot, message):
+def start(_, message):
     photo=IMG_START
-    text=MSG_START.format(message.from_user.mention)
-    text+="\n\n psst, you can chat me via this bot UwU",
+    text=MSG_START.format(message.from_user.mention) + "\n\n psst, you can chat me via this bot UwU"
     reply_markup=InlineKeyboardMarkup(KEYBOARD_HOME)
     send(message, photo, text, reply_markup)
 
 @bot.on_message(filters.command("about") & filters.private)
 @bot.on_callback_query(filters.regex(pattern=r"about"))
-def about(bot, message):
+def about(_, message):
     photo=IMG_START
     text=ABOUT_MSG
     reply_markup=InlineKeyboardMarkup(KEYBOARD_ABOUT)
@@ -106,7 +67,7 @@ def about(bot, message):
 
 @bot.on_message(filters.command("projects") & filters.private)
 @bot.on_callback_query(filters.regex(pattern=r"projects"))
-def projects(bot, message):
+def projects(_, message):
     photo=IMG_START
     text=PROJECTS_MSG
     reply_markup=InlineKeyboardMarkup(KEYBOARD_PROJECTS)
@@ -114,14 +75,14 @@ def projects(bot, message):
 
 @bot.on_message(filters.command("socmed") & filters.private)
 @bot.on_callback_query(filters.regex(pattern=r"socmed"))
-def socmed(bot, message):
+def socmed(_, message):
     photo=IMG_START
     text=SOCMED_MSG
     reply_markup=InlineKeyboardMarkup(KEYBOARD_SOCMED)
     send(message, photo, text, reply_markup)
 
 @bot.on_inline_query(filters.user(OWNER_ID))
-def inline_query(bot, inline_query):
+def inline_query(_, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
@@ -146,7 +107,7 @@ def inline_query(bot, inline_query):
     )
 
 @bot.on_inline_query(~filters.user(OWNER_ID))
-def notowner(bot, inline_query):
+def notowner(_, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
@@ -156,37 +117,19 @@ def notowner(bot, inline_query):
             )
         ]
     )
-#------------------------------------------#
 
-#----Credits for @TeamYukki/YukkiChatBot----#
-@app.on_message(filters.private & ~filters.edited)
+@bot.on_message(filters.private & ~filters.edited)
 def incoming_private(_, message):
     user_id = message.from_user.id
-    if user_id === OWNER_ID:
-        if message.reply_to_message:
-            replied_id = message.reply_to_message_id
-            try:
-                replied_user_id = save[replied_id]
-            except Exception as e:
-                return message.reply_text(
-                    "Failed to fetch user, "
-                    ('because' + e if e else 'please restart the bot.')
-                )
-            try:
-                return app.copy_message(
-                    replied_user_id,
-                    message.chat.id,
-                    message.message_id,
-                )
-            except Exception as e:
-                return message.reply_text(
-                    "Failed to send the message, "
-                    "User might have blocked the bot or something wrong happened.\n"
-                    f"ERROR: {e}"
-                )
+    if user_id == OWNER_ID:
+        sender = message.reply_to_message.forward_sender_name
+        for name, rep_uid in chatbot.items():
+            if name == sender:
+                message.forward(rep_uid, is_copy=True)
     else:
+        name = message.from_user.first_name
+        chatbot[name] = message.from_user.id
         message.forward(OWNER_ID)
-#------------------------------------------#
 
 os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
 from keep_alive import keep_alive
