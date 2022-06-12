@@ -64,7 +64,7 @@ KEYBOARD_SOCMED = [
 def send(message, photo, text, reply_markup):
     def edit(message, text, reply_markup):
         message.edit_message_text(
-            text=text,
+            text=text + "\n\n psst, you can chat me via this bot UwU",
             reply_markup=reply_markup,
             disable_web_page_preview=True
         )
@@ -155,6 +155,36 @@ def notowner(client, inline_query):
             )
         ]
     )
+#------------------------------------------#
+
+#----Credits for @TeamYukki/YukkiChatBot----#
+@app.on_message(filters.private & ~filters.edited)
+def incoming_private(_, message):
+    user_id = message.from_user.id
+    if user_id === OWNER_ID:
+        if message.reply_to_message:
+            replied_id = message.reply_to_message_id
+            try:
+                replied_user_id = save[replied_id]
+            except Exception as e:
+                return message.reply_text(
+                    "Failed to fetch user, "
+                    ('because' + e if e else 'please restart the bot.')
+                )
+            try:
+                return app.copy_message(
+                    replied_user_id,
+                    message.chat.id,
+                    message.message_id,
+                )
+            except Exception as e:
+                return message.reply_text(
+                    "Failed to send the message, "
+                    "User might have blocked the bot or something wrong happened.\n"
+                    f"ERROR: {e}"
+                )
+    else:
+        message.forward(OWNER_ID)
 #------------------------------------------#
 
 os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
