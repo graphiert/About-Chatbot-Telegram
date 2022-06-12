@@ -1,7 +1,7 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/AboutMe-tgbot
 
 import os, sys
-os.system("pip3 install Pyrogram TgCrypto Flask")
+os.system("pip3 install Pyrogram==1.4.16 TgCrypto Flask")
 from pyrogram import Client
 from config import *
 
@@ -121,7 +121,7 @@ def socmed(bot, message):
     send(message, photo, text, reply_markup)
 
 @bot.on_inline_query(filters.user(OWNER_ID))
-def inline_query(client, inline_query):
+def inline_query(bot, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
@@ -146,7 +146,7 @@ def inline_query(client, inline_query):
     )
 
 @bot.on_inline_query(~filters.user(OWNER_ID))
-def notowner(client, inline_query):
+def notowner(bot, inline_query):
    inline_query.answer(
         results=[
             InlineQueryResultArticle(
