@@ -1,10 +1,11 @@
+# @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
+
 from pyrogram import filters
 from pyrogram.types import (
     InlineKeyboardMarkup,
     InputTextMessageContent,
     InlineQueryResultArticle
 )
-from keyboard import *
 from utils import *
 from config import (
     MSG_START, IMG_START, ONWER_ID,
@@ -88,7 +89,7 @@ def incoming_private(_, message):
             if name == sender:
                 message.forward(rep_uid, is_copy=True)
     else:
-        if bot.get_me() == message.from_user.id:
+        if bot.get_me().id == message.from_user.id:
             return
         name = message.from_user.first_name
         chatbot[name] = message.from_user.id

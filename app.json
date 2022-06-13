@@ -1,0 +1,63 @@
+{
+    "name": "About & Chatbot Telegram",
+    "description": "This bot is used to explain yourself, as well as to chat with someone (like Livegram Bot)",
+    "keywords": [
+        "pyrogram",
+        "telegram",
+        "python",
+    ],
+    "repository": "https://github.com/galihpujiirianto/About-Chatbot-Telegram",
+    "env": {
+        "API_ID": {
+            "description": "Enter API_ID, get it from https://my.telegram.org/apps",
+            "value": "", 
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Enter API_HASH, get it from https://my.telegram.org/apps",
+            "value": "",
+            "required": true
+        },
+        "TOKEN": {
+            "description": "Enter TOKEN, get it from https://t.me/BotFather",
+            "value": "",
+            "required": true
+        },
+        "OWNER_ID": {
+            "description": "Enter OWNER_ID, start https://t.me/Missrose_bot and type /id",
+            "value": "",
+            "required": true
+        },
+        "MSG_START": {
+            "description": "Message to be sent when user clicks /start. Use {} to mention the user who started the bot, `\n` to making new line, and Markdown Parse Mode to give markdown.",
+            "value": "",
+            "required": true
+        },
+        "IMG_START": {
+            "description": "If you want to use an image, enter the telegraph link.",
+            "value": "https://telegra.ph//file/e205a797b4599686909e2.jpg",
+            "required": false
+        },
+        "ABOUT_MSG": {
+            "description": "Message that will be sent when the user presses the about button or when the user sends the /about command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
+            "value": "",
+            "required": true
+        },
+        "PROJECTS_MSG": {
+            "description": "Message that will be sent when the user presses the projects button or when the user sends the /projects command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
+            "value": "",
+            "required": true
+        },
+        "SOCMED_MSG": {
+            "description": "Message that will be sent when the user presses the socmed button or when the user sends the /socmed command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
+            "value": "",
+            "required": true
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}

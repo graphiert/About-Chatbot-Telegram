@@ -1,4 +1,4 @@
-# @galihpujiirianto https://github.com/galihpujiirianto/AboutMe-tgbot
+# @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
 
 import os, sys
 os.system("pip3 install Pyrogram==1.4.16 TgCrypto Flask")
@@ -18,9 +18,9 @@ bot = Client(
     plugins={"include"=["plugin"]}
 )
 
-os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
-from keep_alive import keep_alive
-from print_txt import print_txt
-print(print_txt)
-keep_alive()
-bot.run()
+try:
+    bot.run()
+except Exception:
+    os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
+    from print_txt import print_txt
+    print(print_txt)
