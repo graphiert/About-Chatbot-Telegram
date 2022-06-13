@@ -30,7 +30,7 @@
         },
         "MSG_START": {
             "description": "Message to be sent when user clicks /start. Use {} to mention the user who started the bot, `\n` to making new line, and Markdown Parse Mode to give markdown.",
-            "value": "",
+            "value": "{} to mention user, `\n` to making new line, and Markdown Parse Mode to give markdown",
             "required": true
         },
         "IMG_START": {
@@ -40,17 +40,17 @@
         },
         "ABOUT_MSG": {
             "description": "Message that will be sent when the user presses the about button or when the user sends the /about command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
-            "value": "",
+            "value": "`\n` to making new line, and Markdown Parse Mode to give markdown",
             "required": true
         },
         "PROJECTS_MSG": {
             "description": "Message that will be sent when the user presses the projects button or when the user sends the /projects command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
-            "value": "",
+            "value": "`\n` to making new line, and Markdown Parse Mode to give markdown",
             "required": true
         },
         "SOCMED_MSG": {
             "description": "Message that will be sent when the user presses the socmed button or when the user sends the /socmed command. Use `\n` to making new line, and Markdown Parse Mode to give markdown.",
-            "value": "",
+            "value": "`\n` to making new line, and Markdown Parse Mode to give markdown",
             "required": true
         }
     },
