@@ -1,7 +1,5 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
 
-import os, sys
-os.system("pip3 install Pyrogram==1.4.16 TgCrypto Flask")
 from pyrogram import Client
 from config import (
     API_ID, API_HASH, TOKEN, OWNER_ID
