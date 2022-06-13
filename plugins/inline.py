@@ -5,6 +5,7 @@ from pyrogram.types import (
     InputTextMessageContent,
     InlineQueryResultArticle
 )
+from main import bot
 from config import (
     MSG_START, IMG_START, ONWER_ID,
     ABOUT_MSG, PROJECTS_MSG, SOCMED_MSG

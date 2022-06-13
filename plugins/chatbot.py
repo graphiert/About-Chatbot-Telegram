@@ -3,6 +3,7 @@
 from pyrogram import filters
 from utils import chatbot
 from config import OWNER_ID
+from main import bot
 
 @bot.on_message(filters.private & ~filters.edited)
 def incoming_private(_, message):
