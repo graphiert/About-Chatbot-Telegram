@@ -1,5 +1,5 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
-
+import os
 # Fill constant variable
 #-----------------------
 API_ID = os.environ["API_ID"] # Enter API_ID, get it from https://my.telegram.org/apps
