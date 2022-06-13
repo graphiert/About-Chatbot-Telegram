@@ -28,7 +28,7 @@ ABOUT_MSG = str(os.environ["ABOUT_MSG"])
 # Message that will be sent when the user presses the
 # projects button or when the user sends the /projects command.
 # Note: Use Markdown Parse Mode to give markdown.
-PROJECTS_MSG = str(os.environ["PROJECT_MSG"])
+PROJECTS_MSG = str(os.environ["PROJECTS_MSG"])
 
 # Message that will be sent when the user presses the
 # social media button or when the user sends the /socmed command.
