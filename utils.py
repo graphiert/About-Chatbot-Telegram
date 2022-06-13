@@ -2,6 +2,9 @@
 
 from pyrogram.types import InlineKeyboardButton
 
+def ajg():
+    return
+
 chatbot = {}
 
 KEYBOARD_HOME = [
