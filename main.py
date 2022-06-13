@@ -1,5 +1,6 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
 
+import os
 from pyrogram import Client, filters
 from pyrogram.types import (
     InputTextMessageContent,
