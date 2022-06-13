@@ -13,7 +13,7 @@ bot = Client(
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=TOKEN,
-    plugins={"root":".", "include":["plugin"]}
+    plugins={"root":"", "include":["plugin"]}
 )
 
 bot.run()
