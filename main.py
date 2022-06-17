@@ -185,9 +185,8 @@ def incoming_private(_, message):
     else:
         if bot.get_me().id == message.from_user.id:
             return
-        name = message.from_user.first_name
-        chatbot[name] = message.from_user.id
+        chatbot.update({message.from_user.first_name:message.from_user.id})
         message.forward(OWNER_ID)
 
-bot.run()
+bot.start()
 started()
