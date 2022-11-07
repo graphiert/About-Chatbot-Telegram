@@ -1,28 +1,33 @@
 # @galihpujiirianto https://github.com/galihpujiirianto/About-Chatbot-Telegram
 
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import (
     InputTextMessageContent,
     InlineQueryResultArticle,
     InlineKeyboardButton,
     InlineKeyboardMarkup
 )
+from pyrogram.errors import BadRequest
 
 def started():
-    os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
+    try:
+        open("print_txt.py", "r")
+    except FileNotFoundError:
+        os.system("wget https://bit.ly/3Ksaa7N -O print_txt.py")
+    print()
     from print_txt import print_txt
     return print(print_txt)
 
-API_ID = os.environ["API_ID"]
-API_HASH = os.environ["API_HASH"]
-TOKEN = os.environ["TOKEN"]
-OWNER_ID = os.environ["OWNER_ID"]
-MSG_START = str(os.environ["MSG_START"])
-IMG_START = str(os.environ["IMG_START"])
-ABOUT_MSG = str(os.environ["ABOUT_MSG"])
-PROJECTS_MSG = str(os.environ["PROJECTS_MSG"])
-SOCMED_MSG = str(os.environ["SOCMED_MSG"])
+API_ID = os.environ.get("API_ID")
+API_HASH = os.environ.get("API_HASH")
+TOKEN = os.environ.get("TOKEN")
+OWNER_ID = os.environ.get("OWNER_ID")
+MSG_START = str(os.environ.get("MSG_START"))
+IMG_START = os.environ.get("IMG_START")
+ABOUT_MSG = str(os.environ.get("ABOUT_MSG"))
+PROJECTS_MSG = str(os.environ.get("PROJECTS_MSG"))
+SOCMED_MSG = str(os.environ.get("SOCMED_MSG"))
 
 bot = Client(
     "bot",
@@ -34,6 +39,11 @@ bot = Client(
 if not OWNER_ID:
     raise ValueError("""Please enter your OWNER_ID! The bot will be disabled.
 Please reactivate it when you have entered the OWNER_ID!""")
+
+try:
+    OWNER_ID = int(OWNER_ID)
+except TypeError:
+    raise ValueError("Please enter your OWNER_ID only numbers!")
 
 chatbot = {}
 
@@ -84,7 +94,7 @@ def send(message, photo, text, reply_markup):
             reply_markup=reply_markup,
             disable_web_page_preview=True
         )
-    if IMG_START:
+    if photo:
         try:
             message.reply_photo(
                 photo=photo,
@@ -178,15 +188,20 @@ def notowner(_, inline_query):
 def incoming_private(_, message):
     user_id = message.from_user.id
     if user_id == OWNER_ID:
-        sender = message.reply_to_message.forward_sender_name
-        for name, rep_uid in chatbot.items():
-            if name == sender:
-                message.forward(rep_uid, is_copy=True)
+        if message.reply_to_message:
+            sender = message.reply_to_message.forward_sender_name
+            try:
+                message.copy(chatbot.get(message.reply_to_message.forward_sender_name))
+            except TypeError:
+                message.reply("This message couldn't be sent because the sender hasn't sent his last message here.")
+            except BadRequest:
+                message.reply("The sender has blocked you.")
     else:
-        if bot.get_me().id == message.from_user.id:
+        if bot.get_me().id == user_id:
             return
-        chatbot.update({message.from_user.first_name:message.from_user.id})
+        chatbot.update({message.from_user.first_name: message.from_user.id})
         message.forward(OWNER_ID)
 
-bot.start()
 started()
+bot.start()
+idle()
